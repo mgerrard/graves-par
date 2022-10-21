@@ -1,0 +1,8 @@
+[submodule "depends/pytorch_sparse"]
+	path = depends/pytorch_sparse
+	url = https://github.com/rusty1s/pytorch_sparse.git
+	branch = 0.6.15
+[submodule "depends/pytorch_scatter"]
+	path = depends/pytorch_scatter
+	url = https://github.com/rusty1s/pytorch_scatter.git
+	branch = 2.0.9
