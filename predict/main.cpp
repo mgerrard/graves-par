@@ -51,12 +51,12 @@ int main(int argc, const char* argv[]) {
   std::vector<int> v(out.data_ptr<int>(), out.data_ptr<int>() + out.numel());
 
   if(v[0] > v[1] && v[1] < v[2]){
-    std::cout<<"cpaSeq,symbiotic"<<std::endl;
+    std::cout<<"cpa-seq,symbiotic"<<std::endl;
   }
   else if(v[0] < v[1] && v[1] > v[2]){
-    std::cout<<"cpaSeq,uautomizer"<<std::endl;
+    std::cout<<"cpa-seq,esbmc-kind"<<std::endl;
   }
   else{
-    std::cout<<"symbiotic,uautomizer"<<std::endl;
+    std::cout<<"symbiotic,esbmc-kind"<<std::endl;
   }
 }
