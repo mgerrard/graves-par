@@ -1,0 +1,3 @@
+imports:
+ - !include esbmc-kind.yml
+ - !include resource-limitations-parallel-portfolio-3.yml

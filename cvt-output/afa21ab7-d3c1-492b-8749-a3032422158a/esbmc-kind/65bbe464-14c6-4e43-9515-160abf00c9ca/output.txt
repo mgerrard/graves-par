@@ -1,0 +1,48 @@
+./esbmc-wrapper.py -p ../../../../work/coveriteam-verifier-algo-selection/coveriteam-verifiers/unreach-call.prp -s kinduction --arch 32 ../../../../work/coveriteam-verifier-algo-selection/coveriteam-verifiers/test.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps --no-por --context-bound-step 5 --max-context-bound 15 ../../../../work/coveriteam-verifier-algo-selection/coveriteam-verifiers/test.c --32 --witness-output test.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.4.0 64-bit x86_64 linux
+file ../../../../work/coveriteam-verifier-algo-selection/coveriteam-verifiers/test.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.053s
+GOTO program processing time: 0.000s
+
+*** Iteration number 1 ***
+*** Checking base case
+Starting Bounded Model Checking
+Symex completed in: 0.000s (14 assignments)
+Slicing time: 0.000s (removed 11 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (3 assignments)
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+Building error trace
+
+Counterexample:
+
+State 1 file test.c line 6 function main thread 0
+----------------------------------------------------
+  x = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 2 file test.c line 10 function main thread 0
+----------------------------------------------------
+Violated property:
+  file test.c line 10 function main
+  assertion
+  !(x < 0)
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+No solver specified; defaulting to Boolector
+
+FALSE_REACH

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE result
+  PUBLIC '+//IDN sosy-lab.org//DTD CoVeriTeam result 0.1//EN'
+  'https://www.sosy-lab.org/coveriteam/result-0.1.dtd'>
+<actor name="ParallelPortfolio">
+  <inputs>
+    <input name="program" type="Program">../../test.c</input>
+    <input name="spec" type="Specification">../../unreach-call.prp</input>
+  </inputs>
+  <outputs>
+    <output name="verdict" type="Verdict">false(unreach-call)</output>
+    <output name="witness" type="Witness">cpa-seq/67bee680-c17c-4632-9864-11bcad9741cd/output/witness.graphml</output>
+  </outputs>
+</actor>

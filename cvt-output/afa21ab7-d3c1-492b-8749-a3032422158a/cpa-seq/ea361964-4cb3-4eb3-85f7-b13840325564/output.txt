@@ -1,0 +1,8 @@
+scripts/cpa.sh -svcomp21 -heap 10000M -benchmark -timelimit '900 s' -stats -spec ../../../../work/coveriteam-verifier-algo-selection/coveriteam-verifiers/unreach-call.prp -32 ../../../../work/coveriteam-verifier-algo-selection/coveriteam-verifiers/test.c
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 10000M.
+Running CPAchecker with default stack size (1024k). Specify a larger value with -stack if needed.

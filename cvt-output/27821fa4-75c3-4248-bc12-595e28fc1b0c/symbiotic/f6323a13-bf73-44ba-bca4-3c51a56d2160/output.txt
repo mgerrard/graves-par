@@ -1,0 +1,28 @@
+bin/symbiotic --sv-comp --witness witness.graphml --prp=../../../../work/jeeves/unreach-call.prp --32 ../../../../work/jeeves/test.c
+
+
+--------------------------------------------------------------------------------
+
+
+[DBG] Witness will be stored to witness.graphml
+[DBG] Will use 32-bit environment
+[DBG] Symbiotic dir: /home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021
+[DBG] 'clang' is '/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/llvm-10.0.0/bin/clang'
+[DBG] 'opt' is '/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/llvm-10.0.0/bin/opt'
+[DBG] 'llvm-link' is '/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/llvm-10.0.0/bin/llvm-link'
+[DBG] 'llvm-nm' is '/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/llvm-10.0.0/bin/llvm-nm'
+[DBG] 'sbt-instr' is '/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/llvm-10.0.0/bin/sbt-instr'
+[DBG] 'sbt-slicer' is '/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/llvm-10.0.0/bin/sbt-slicer'
+[DBG] 'klee' is '/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/llvm-10.0.0/bin/klee'
+[DBG] Working directory: /tmp/symbiotic-2lk771s0
+[DBG] PATH=/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/slowbeast:/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/llvm-10.0.0/bin:/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/bin:/home/mjg6v/.opam/4.05.0/bin:/home/mjg6v/.local/bin:/home/mjg6v/work/dig/SageMath:/home/mjg6v/.opam/4.05.0/bin:/home/mjg6v/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+[DBG] LD_LIBRARY_PATH=/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/llvm-10.0.0/predator/lib:/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/llvm-10.0.0/lib:/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/lib
+[DBG] C_INCLUDE_DIR=/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/include
+8.0.0-pre-llvm-10.0.0-symbiotic:4dc6fab5-dg:52ca3189-sbt-slicer:85c8cb48-sbt-instrumentation:d0251925-klee:a549d22e
+INFO: Looking for reachability of calls to reach_error
+[DBG] Running symbiotic-cc for svcomp
+|> clang -c -emit-llvm -D__inline= -Wno-unused-parameter -Wno-unknown-attributes -Wno-unused-label -Wno-unknown-pragmas -Wno-unused-command-line-argument -O0 -disable-llvm-passes -g -fbracket-depth=-1 -I/home/mjg6v/.cache/coveriteam/tools/symbiotic-default-https-gitlab.com-sosy-lab-sv-comp-archives-2021---raw-master-2021/include -m32 -o test.bc /home/mjg6v/work/jeeves/test.c
+[DBG] clang: error while loading shared libraries: libclang-cpp.so.10: cannot open shared object file: No such file or directory
+RESULT: ERROR (Compiling source '/home/mjg6v/work/jeeves/test.c' failed)
+ERROR:  == FAILURE ==
+Compiling source '/home/mjg6v/work/jeeves/test.c' failed
