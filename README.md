@@ -1,4 +1,4 @@
-This tool verifier-algo-selector (TO CHANGE) has been created using CoVeriTeam: https://gitlab.com/sosy-lab/software/coveriteam
+This tool Graves-Parallel has been created using CoVeriTeam: https://gitlab.com/sosy-lab/software/coveriteam
 It is essentially CoVeriTeam packaged with several other tools in the "cache/tools/" directory.
 The file README.md contains more information about CoVeriTeam, including licencing information about CoVeriTeam.
 
@@ -19,4 +19,4 @@ The license and copyrights are separate for 1) CoVeriTeam, and 2) the packaged t
 
 Usage:
 
-  ./jeeves-serves-tea.sh cpa-seq symbiotic unreach-call.prp test.c
+  ./graves.sh unreach-call.prp test.c
