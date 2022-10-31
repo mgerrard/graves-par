@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# if --version, print and exit
+if [[ $1 == *"--version"* ]]; then
+    echo "1.0"
+    exit 0
+fi
+
 # check args
 if [ "$#" -ne 2 ]; then
     echo "oops, there should be four parameters to this script"
