@@ -7,9 +7,10 @@ if [[ $1 == *"--version"* ]]; then
 fi
 
 # check args
-if [ "$#" -ne 3 ]; then
-    echo "oops, there should be three parameters to this script"
-    echo "  usage: ./graves.sh <SPEC> <FILE> {ILP32,LP64}"
+if [ "$#" -ne 8 ]; then
+    echo "oops, expecting eight parameters to this script"
+    echo "  usage: ./graves.sh verifier-parallel-portfolio.cvt --cache-dir cache --no-cache-update --use-python-processes
+<C_FILE> <SPEC> {ILP32,LP64}"
     exit 9
 fi
 
@@ -25,4 +26,4 @@ tool2=${arr_result[1]}
 sed -e "s/REPLACE1/$tool1/g" -e "s/REPLACE2/$tool2/g" graves-template.cvt > verifier-parallel-portfolio.cvt
 
 # launch coveriteam harness
-./bin/coveriteam --use-python-processes --input specification_path=$1 --input program_path=$2 --data-model=$3 verifier-parallel-portfolio.cvt
+./bin/coveriteam $1 $2 $3 $4 $5 --input program_path=$6 --input specification_path=$7 --data-model=$8
