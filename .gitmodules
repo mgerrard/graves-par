@@ -6,3 +6,6 @@
 	path = depends/pytorch_scatter
 	url = https://github.com/rusty1s/pytorch_scatter.git
 	branch = 2.0.9
+[submodule "predict/graph-builder"]
+	path = predict/graph-builder
+	url = git@github.com:will-leeson/graph-builder.git
