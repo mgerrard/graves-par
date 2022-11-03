@@ -54,7 +54,7 @@ fi
 
 pushd predict/build
 
-if [ ! -f predict ]
+if [ ! -f predict ]; then
     echo "Building predictor"
     cmake .. -DTorchScatter_DIR="$PWD/../../depends/torch-scatter-install/share/cmake/TorchScatter" -DTorchSparse_DIR="$PWD/../../depends/torch-sparse-install/share/cmake/TorchSparse" -DTorch_DIR="$PWD/../../depends/libtorch/share/cmake/Torch"
     if make -j4; then
