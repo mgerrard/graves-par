@@ -19,4 +19,4 @@ The license and copyrights are separate for 1) CoVeriTeam, and 2) the packaged t
 
 Usage:
 
-  ./graves.sh <C_FILE> <SPEC> {ILP32,LP64}
+  ./graves.sh \<C_FILE\> \<SPEC\> {ILP32,LP64}
