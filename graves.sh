@@ -21,9 +21,10 @@ graves_result=`./predict/build/predict predict/dummy_model.pt`
 arr_result=(${graves_result//,/ })
 tool1=${arr_result[0]}
 tool2=${arr_result[1]}
+tool3=${arr_result[2]}
 
 # write selected tools to expected 'coverilang' file
-sed -e "s/REPLACE1/$tool1/g" -e "s/REPLACE2/$tool2/g" graves-template.cvt > verifier-parallel-portfolio.cvt
+sed -e "s/REPLACE1/$tool1/g" -e "s/REPLACE2/$tool2/g" -e "s/REPLACE3/$tool3/g" graves-template.cvt > verifier-parallel-portfolio.cvt
 
 # launch coveriteam harness
 ./bin/coveriteam $1 $2 $3 $4 $5 --input program_path=$6 --input specification_path=$7 --data-model=$8
