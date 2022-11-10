@@ -41,8 +41,10 @@ int main(int argc, const char **argv) {
   ClangTool Tool(OptionsParser.getCompilations(),
                   OptionsParser.getSourcePathList());
   
-  graph *g;
-  Tool.run(GraphBuilderActionFactory(AST.getValue(), ICFG.getValue(), Call.getValue(), Data.getValue(), chainLength.getValue(), outFile.getValue(), print.getValue(), g).get());
+  graph g;
+  graph *gPointer = &g;
+  Tool.run(GraphBuilderActionFactory(AST.getValue(), ICFG.getValue(), Call.getValue(), Data.getValue(), chainLength.getValue(), outFile.getValue(), print.getValue(), gPointer).get());
+
   torch::jit::script::Module model;
 
   try {
@@ -57,24 +59,31 @@ int main(int argc, const char **argv) {
   c10::InferenceMode guard(true);
   model.eval();
 
-  auto opts = torch::TensorOptions().dtype(torch::kInt32);
-  auto nodeTensor = torch::randint(2, {300, 67},opts).to(torch::kFloat32);
-  auto outEdgeTensor = torch::randint(299, 300,opts).to(torch::kI64);
-  auto inEdgeTensor = torch::randint(299, 300,opts).to(torch::kI64);
+  std::vector<torch::Tensor> nodeVector;
+  torch::Tensor temp;
+  auto opts = torch::TensorOptions().dtype(torch::kInt64);
+  for(int node : g.get_nodesSerial()){
+    temp = torch::zeros({156},opts);
+    temp.index_put_({node}, 1);
+    nodeVector.push_back(temp);
+  }
+
+  std::vector<int> outEdgeVector = g.get_outEdgesSerial();
+  std::vector<int> inEdgeVector = g.get_inEdgesSerial();
+
+  auto nodeTensor = torch::stack(nodeVector);
+  auto outEdgeTensor = torch::tensor(outEdgeVector, opts);
+  auto inEdgeTensor = torch::tensor(outEdgeVector,opts);
   auto edgeTensor = torch::stack({outEdgeTensor, inEdgeTensor});
 
-  auto edge_attrTensor = torch::zeros_like(outEdgeTensor,opts).to(torch::kFloat32);
-
   auto problemType = torch::zeros(1, opts).to(torch::kFloat32);
-
-  auto batch = torch::zeros(nodeTensor.sizes()[0], opts).to(torch::kI64);
+  auto batch = torch::zeros(nodeTensor.sizes()[0], opts);
 
   std::vector<torch::jit::IValue> inputs;
-  inputs.push_back(nodeTensor);
-  inputs.push_back(edgeTensor);
-  inputs.push_back(edge_attrTensor);
-  inputs.push_back(problemType);
-  inputs.push_back(batch);
+  inputs.push_back(nodeTensor.to(torch::kFloat32));
+  inputs.push_back(edgeTensor.to(torch::kInt64));
+  inputs.push_back(batch.to(torch::kInt64));
+  inputs.push_back(problemType.to(torch::kFloat32));
 
   auto out = model.forward(inputs).toTensor();
 
