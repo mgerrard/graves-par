@@ -87,19 +87,22 @@ int main(int argc, const char **argv) {
 
   auto out = model.forward(inputs).toTensor();
 
-  out = out.argsort();
-  out = out.contiguous().to(torch::kInt32);
-  std::vector<int> v(out.data_ptr<int>(), out.data_ptr<int>() + out.numel());
+  int topkVal = 3;
+  auto topkOut = std::get<1>(out.topk(topkVal));
+  topkOut = topkOut.contiguous().to(torch::kInt32);
+  std::vector<int> v(topkOut.data_ptr<int>(), topkOut.data_ptr<int>() + topkOut.numel());
 
-  if(v[0] > v[1] && v[1] < v[2]){
-    std::cout<<"cpa-seq,symbiotic"<<std::endl;
+  std::string tools[8] = {"2ls","cbmc","cpa-seq","esbmc-kind","symbiotic","uautomizer","ukojak","utaipan"};
+
+  std::ostringstream outString;
+  for(int i=0; i<topkVal; i++){
+    outString<<tools[v[i]];
+    if(i+1!=topkVal){
+      outString<<",";
+    }
   }
-  else if(v[0] < v[1] && v[1] > v[2]){
-    std::cout<<"cpa-seq,esbmc-kind"<<std::endl;
-  }
-  else{
-    std::cout<<"symbiotic,esbmc-kind"<<std::endl;
-  }
+
+  std::cout<<outString.str()<<std::endl;
 
   return 0;
 }
