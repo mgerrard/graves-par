@@ -29,11 +29,10 @@ fi
 arr_result=(${graves_result//,/ })
 tool1=${arr_result[0]}
 tool2=${arr_result[1]}
-#tool3=${arr_result[2]}
+tool3=${arr_result[2]}
 
 # write selected tools to expected 'coverilang' file
-#sed -e "s/REPLACE1/$tool1/g" -e "s/REPLACE2/$tool2/g" -e "s/REPLACE3/$tool3/g" graves-template.cvt > verifier-parallel-portfolio.cvt
-sed -e "s/REPLACE1/$tool1/g" -e "s/REPLACE2/$tool2/g" graves-template.cvt > verifier-parallel-portfolio.cvt
+sed -e "s/REPLACE1/$tool1/g" -e "s/REPLACE2/$tool2/g" -e "s/REPLACE3/$tool3/g" graves-template.cvt > verifier-parallel-portfolio.cvt
 
 # launch coveriteam harness
 if [ "$THREE_ARGS"=true ]; then
