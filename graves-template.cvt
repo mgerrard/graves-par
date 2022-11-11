@@ -10,14 +10,15 @@
 // Create verifier from external-actor definition file
 tool_1 = ActorFactory.create(ProgramVerifier, "./actors/REPLACE1-parallel-portfolio-3.yml", "default");
 tool_2 = ActorFactory.create(ProgramVerifier, "./actors/REPLACE2-parallel-portfolio-3.yml", "default");
-tool_3 = ActorFactory.create(ProgramVerifier, "./actors/REPLACE3-parallel-portfolio-3.yml", "default");
+//tool_3 = ActorFactory.create(ProgramVerifier, "./actors/REPLACE3-parallel-portfolio-3.yml", "default");
 
 // Prepare example inputs
 prog = ArtifactFactory.create(CProgram, program_path);
 spec = ArtifactFactory.create(BehaviorSpecification, specification_path);
 inputs = {'program':prog, 'spec':spec};
 
-portfolio = ParallelPortfolio(tool_1,tool_2,tool_3,ELEMENTOF(verdict, {TRUE,FALSE}));
+//portfolio = ParallelPortfolio(tool_1,tool_2,tool_3,ELEMENTOF(verdict, {TRUE,FALSE}));
+portfolio = ParallelPortfolio(tool_1,tool_2,ELEMENTOF(verdict, {TRUE,FALSE}));
 
 print(portfolio);
 
