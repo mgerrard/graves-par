@@ -1,3 +1,3 @@
 imports:
  - !include cpa-seq.yml
- - !include resource-limitations-parallel-portfolio-3.yml
+ - !include cpa-seq-resource-limitations.yml
