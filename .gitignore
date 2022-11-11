@@ -5,3 +5,6 @@ depends/torch-sparse-install/
 *lastexecution*
 depends/libtorch-cxx11-abi-shared-with-deps*
 cvt-output/*
+actors/*-resource-limitations.yml
+coveriteam/language/mpi_execution/__pycache__/
+*~

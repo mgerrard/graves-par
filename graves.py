@@ -11,13 +11,12 @@ if "--version" in sys.argv:
     sys.exit(0)
 
 three_args=False
-if len(sys.argv) == 3:
+if len(sys.argv) == 4:
     three_args=True
-elif len(sys.argv) != 8:
+elif len(sys.argv) != 9:
     print("oops, expecting either three or eight parameters to this script")
     print("  basic usage: ./graves.py <C_FILE> <SPEC> {ILP32,LP64}")
-    print("  sv-comp usage: ./graves.py verifier-parallel-portfolio.cvt --cache-dir cache --no-cache-update --use-python-processes
-<C_FILE> <SPEC> {ILP32,LP64}")
+    print("  sv-comp usage: ./graves.py verifier-parallel-portfolio.cvt --cache-dir cache --no-cache-update --use-python-processes <C_FILE> <SPEC> {ILP32,LP64}")
     sys.exit(9)
 
 #################################################
@@ -88,7 +87,7 @@ if(debug):
 
 for tool,mem_limit in tool_mem_pairs:
     print(tool); print(mem_limit);
-    f_name=tool+"-resource-limitations.yml"
+    f_name="./actors/"+tool+"-resource-limitations.yml"
     f_str="resourcelimits:\n  memlimit: \""+str(mem_limit)+" MB\"\n  timelimit: \"15 min\"\n"
     with open(f_name, "w") as f:
         f.write(f_str)
