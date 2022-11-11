@@ -86,7 +86,6 @@ if(debug):
     print("(tool,mem) pairs:"); print(tool_mem_pairs)
 
 for tool,mem_limit in tool_mem_pairs:
-    print(tool); print(mem_limit);
     f_name="./actors/"+tool+"-resource-limitations.yml"
     f_str="resourcelimits:\n  memlimit: \""+str(mem_limit)+" MB\"\n  timelimit: \"15 min\"\n"
     with open(f_name, "w") as f:
