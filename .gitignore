@@ -5,3 +5,4 @@ depends/torch-sparse-install/
 *lastexecution*
 depends/libtorch-cxx11-abi-shared-with-deps*
 cvt-output/*
+verifier-parallel-portfolio.cvt
