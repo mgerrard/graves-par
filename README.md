@@ -17,6 +17,10 @@ The license and copyrights are separate for 1) CoVeriTeam, and 2) the packaged t
    packaged under "cache/tools/cst_transform-https-syncandshare.lrz.de-dl-fiPJhz6P526GDcYNyF4MpyD5" (TO CHANGE),
    and also complies with the sv-comp license requirements.
 
+Dependencies:
+  - clang-11
+  - libclang-11-dev
+
 Usage:
 
   ./graves.sh \<C_FILE\> \<SPEC\> {ILP32,LP64}
