@@ -96,7 +96,7 @@ int main(int argc, const char **argv) {
 
   std::ostringstream outString;
   for(int i=0; i<topkVal; i++){
-    outString<<tools[v[i]];
+    outString<<tools[v[i]]<<","<<"300";
     if(i+1!=topkVal){
       outString<<",";
     }
